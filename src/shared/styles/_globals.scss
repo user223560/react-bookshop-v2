@@ -1,0 +1,58 @@
+@use "sass:map";
+
+// Breakpoints
+$breakpoints-up: (
+  "desktop": "120em" // 1920px
+);
+
+// Colors
+$bg-sidebar: #efeef6;
+$bg-white: #ffffff;
+$bg-red: #ff353a;
+
+$text-primary: #5c6a79;
+$text-seconadary: #1c2a39;
+$text-white: #ffffff;
+
+$btn-primary: #4c3db2;
+$btn-hover: #eeedf5;
+
+// Fonts
+$font-family: (
+  MS: Montserrat,
+  OS: Open Sans
+);
+
+$font-size: (
+  // 8px
+  XXS: 0.5rem,
+  // 10px
+  XS: 0.625rem,
+  // 12px
+  S: 0.75rem,
+  // 13px
+  SM: 0.8125rem,
+  // 16px
+  M: 1rem,
+  // 24px
+  L: 1.5rem
+);
+
+$font-weight: (
+  R: 400,
+  M: 500,
+  SB: 600,
+  B: 700,
+  BL: 900
+);
+
+// Functions and Mixins
+@function rem($pixels, $context: 16) {
+  @return calc($pixels / $context) + 0rem;
+}
+
+@mixin breakpoint-up($size) {
+  @media (min-width: map.get($breakpoints-up, $size)) {
+    @content;
+  }
+}

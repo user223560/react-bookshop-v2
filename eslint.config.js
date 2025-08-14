@@ -4,6 +4,8 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 import { globalIgnores } from 'eslint/config'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
 export default tseslint.config([
   globalIgnores(['dist']),
@@ -21,6 +23,17 @@ export default tseslint.config([
         ...globals.browser,
         ...globals.node
       },
+    },
+    settings: {
+      'import/resolver': {
+        alias: {
+          map: [
+            ['@', path.resolve(path.dirname(fileURLToPath(import.meta.url)), 'src')],
+            ['@assets', path.resolve(path.dirname(fileURLToPath(import.meta.url)), 'src/shared/assets')]
+          ],
+          extensions: ['.js', '.jsx', '.ts', '.tsx', '.svg', '.svg?react']
+        }
+      }
     },
     rules: {
       ...js.configs.recommended.rules,

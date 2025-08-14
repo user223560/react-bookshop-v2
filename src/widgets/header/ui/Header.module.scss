@@ -1,0 +1,30 @@
+@use "sass:map";
+
+.header {
+  &__navbar {
+    display: flex;
+  }
+
+  &__logo {
+    color: $text-seconadary;
+  }
+
+  &__links {
+    display: flex;
+  }
+
+  &__link-item {
+    font-weight: map.get($font-weight, B);
+    font-size: map.get($font-size, XS);
+    text-transform: uppercase;
+    color: $text-primary;
+
+    &--active {
+      font-weight: map.get($font-weight, BL);
+      color: $text-seconadary;
+    }
+  }
+
+  &__user-space {
+  }
+}

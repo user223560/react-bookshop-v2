@@ -11,7 +11,7 @@ $bg-white: #ffffff;
 $bg-red: #ff353a;
 
 $text-primary: #5c6a79;
-$text-seconadary: #1c2a39;
+$text-secondary: #1c2a39;
 $text-white: #ffffff;
 
 $btn-primary: #4c3db2;
@@ -55,4 +55,9 @@ $font-weight: (
   @media (min-width: map.get($breakpoints-up, $size)) {
     @content;
   }
+}
+
+@mixin link-base-styles {
+  font-size: map.get($font-size, XS);
+  text-transform: uppercase;
 }
